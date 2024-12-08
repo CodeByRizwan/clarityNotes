@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Details</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#f8f5f2] text-[#4a4845] flex flex-col min-h-screen p-6">
+
+    <!-- Container (main content area) -->
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-md p-6 mb-20 flex-grow border border-[#eae6e3]">
+        <!-- Link to go back to chapter -->
+        <div class="mb-4">
+            <a href="/book/chapter/<%= chapter._id %>" class="text-sm text-[#6e7f7f] hover:text-[#4a4845] underline">
+                <%= chapter.name %>
+            </a>
+        </div>
+
+        <!-- Array Section -->
+        <h1 class="text-lg font-semibold text-[#4a4845] mb-4">
+            <%= fieldName %>
+        </h1>
+
+        <% if (fieldItems.length > 0) { %>
+            <ul class="space-y-4">
+                <% fieldItems.forEach((item, index) => { %>
+                    <li class="flex items-center justify-between bg-[#f8f7f6] p-4 rounded-md shadow-md hover:bg-[#f2f1ef]">
+                        <p class="text-[#4a4845]">
+                            <%= index + 1 %>. <%= item %>
+                        </p>
+                        <!-- Delete Button (Cross Button) -->
+                        <button class="text-[#6e7f7f] hover:text-[#4a4845] rounded-full p-2 transition focus:outline-none"
+                            title="Delete Item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p class="text-center text-[#817e79] mt-8">No items added yet.</p>
+        <% } %>
+    </div>
+
+    <!-- Form Section (Fixed at the Bottom) -->
+    <div class="fixed bottom-0 inset-x-0 bg-white shadow-lg p-4 border-t border-[#eae6e3]">
+        <form action="/chapter/<%=chapter._id%>/field/<%=encodeURIComponent(fieldName)%>/add-value" method="POST"
+            class="flex items-center space-x-4">
+            <input type="text" name="newItem" placeholder="Add a new item..."
+                class="flex-grow border-b-2 border-[#eae6e3] bg-[#f8f7f6] text-[#4a4845] px-4 py-2 rounded-md"
+                required>
+            <button type="submit"
+                class="bg-[#e3dfda] text-[#4a4845] px-4 py-2 rounded-md hover:bg-[#d9d4cc] transition focus:outline-none focus:ring-2 focus:ring-[#d9d4cc]">
+                Add
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

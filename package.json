@@ -1,0 +1,32 @@
+{
+  "name": "notes-maker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build:css": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/css/tailwind.css --minify",
+    "start": "NODE_ENV=production node index.js",
+    "predeploy": "npm run build:css",
+    "deploy": "npm start"
+  },
+  "author": "rij",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
+  }
+}
