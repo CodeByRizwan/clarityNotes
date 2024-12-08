@@ -13,9 +13,7 @@ async function handleNewFieldCreation(req,res){
         }
         foundChapter.fields.set(fieldName, []); 
         await foundChapter.save();
-        if (process.env.NODE_ENV === 'development') {
-          console.log(foundChapter.fields);  // Only log in development mode
-      }      
+      
         return res.redirect(`/book/chapter/${chapterId}`)
       } catch (error) {
         console.error(error);
