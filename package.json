@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "build:css": "npx tailwindcss -i ./src/styles/tailwind.css -o ./public/css/tailwind.css --minify",
-    "start": "NODE_ENV=production node index.js",
+    "start": "node index.js",
     "predeploy": "npm run build:css",
     "deploy": "npm start"
   },
