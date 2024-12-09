@@ -26,8 +26,6 @@ async function handleOneFieldDisplay(req,res){
       const chapterId = req.params.chapterId
       const fieldName = req.params.fieldName
 
-      console.log(fieldName)
-
       const foundChapter = await chapter.findById(chapterId)
       if(!foundChapter){
         return res.status(400).send("something went wrong")

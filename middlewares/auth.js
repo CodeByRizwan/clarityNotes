@@ -9,9 +9,7 @@ function checkForAuthentication(cookieName){
         }
 
         try {
-            const userPayLoad = await crackTheJWTToken(cookieValue)
-            console.log(userPayLoad);
-            
+            const userPayLoad = await crackTheJWTToken(cookieValue) 
             req.user = userPayLoad
             next()
         } catch (error) {
