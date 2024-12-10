@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter: <%= chapter.name %></title>
     <link href="/css/tailwind.css" rel="stylesheet">
-    <script async src="https://analytics.vercel.app/"></script>
 </head>
 
 <body class="bg-[#f8f5f2] text-[#4a4845] flex flex-col items-center min-h-screen p-6">
@@ -59,53 +58,15 @@
 
         <!-- Add New Custom Field Button -->
         <div class="mt-8 text-center">
-            <button onclick="toggleModal()"
+            <a href="/add/<%= chapter._id %>/field"
                 class="bg-[#e3dfda] text-[#4a4845] px-6 py-3 rounded-md shadow-md hover:bg-[#d9d4cc] transition focus:outline-none focus:ring-2 focus:ring-[#d9d4cc]">
                 Add Custom Field
-            </button>
+            </a>
         </div>
     </div>
 
     <!-- Modal for Adding Custom Field -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center hidden">
-        <div class="bg-[#ffffff] w-4/5 max-w-md rounded-lg p-6 shadow-lg border border-[#eae6e3]">
-            <h2 class="text-lg font-semibold text-[#4a4845] mb-4">Add Custom Field</h2>
-            <form action="/chapter/<%= chapter._id %>/add-field" method="POST" onsubmit="closeModal()">
-                <div class="mb-4">
-                    <label for="fieldName" class="block text-sm font-medium text-[#817e79]">Field Name</label>
-                    <input type="text" name="fieldName" id="fieldName"
-                        class="w-full border-b border-[#eae6e3] bg-transparent text-[#4a4845] px-2 py-2 focus:outline-none focus:border-[#d9d4cc] transition"
-                        required>
-                </div>
-                <div class="flex justify-end space-x-4">
-                    <button type="button" onclick="closeModal()"
-                        class="bg-[#e3dfda] text-[#4a4845] px-4 py-2 rounded-md hover:bg-[#d9d4cc] transition">
-                        Cancel
-                    </button>
-                    <button type="submit"
-                        class="bg-[#e3dfda] text-[#4a4845] px-4 py-2 rounded-md hover:bg-[#d9d4cc] transition">
-                        Add Field
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <script>
-        // Toggle modal visibility
-        function toggleModal() {
-            const modal = document.getElementById("modal");
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-        }
-
-        // Close the modal
-        function closeModal() {
-            const modal = document.getElementById("modal");
-            modal.classList.remove("flex");
-            modal.classList.add("hidden");
-        }
-    </script>
 </body>
 
 </html>

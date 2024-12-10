@@ -45,20 +45,22 @@ async function handleOneChapterDisplay(req, res) {
 
 async function handleChapterCreation(req,res){
     const { name , number} = req.body
-    const bookID = req.params.bookID
+    const bookId = req.params.bookId
+    console.log(bookId);
+    
 
     try{
         const createdChapter = await chapter.create({
             name : name,
             number : number,
-            bookId : bookID
+            bookId : bookId
     })
     
     }catch(error){
-        console.log("something went wrong while creating the chapter");
+        console.log("something went wrong while creating the chapter",error);
         return res.status(500).send("We are sorry! something went wrong while creating the chapter")
     }
-    return res.redirect(`/book/${bookID}/chapters`)
+    return res.redirect(`/book/${bookId}/chapters`)
 }
 
 module.exports = {handleChaptersDisplay , handleOneChapterDisplay , handleChapterCreation}

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapters</title>
     <link href="/css/tailwind.css" rel="stylesheet">
-    <script async src="https://analytics.vercel.app/"></script>
 </head>
 
 <body class="bg-[#f8f5f2] text-[#4a4845] flex flex-col items-center min-h-screen p-6">
@@ -62,63 +61,12 @@
 
         <!-- Add New Chapter Button -->
         <div class="mt-8 flex justify-center">
-            <button onclick="openModal()"
+            <a href="/add/<%= book._id %>/chapter"
                 class="bg-[#e3dfda] text-[#4a4845] px-6 py-3 rounded-lg shadow-md hover:bg-[#d9d4cc] transition focus:outline-none focus:ring-2 focus:ring-[#d9d4cc]">
                 Add New Chapter
-            </button>
+        </a>
         </div>
     </div>
-
-    <!-- Modal for Adding a New Chapter -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center hidden">
-        <div class="bg-[#ffffff] w-4/5 max-w-md rounded-lg p-6 shadow-lg border border-[#eae6e3]">
-            <h2 class="text-xl font-bold text-[#4a4845] mb-4">Add a New Chapter</h2>
-            <form action="/book/<%= book._id %>/add-chapter" method="POST" onsubmit="closeModal()">
-                <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium text-[#817e79]">Chapter Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        class="w-full border-b border-[#eae6e3] bg-transparent text-[#4a4845] px-2 py-2 focus:outline-none focus:border-[#d9d4cc] transition"
-                        placeholder="Enter chapter name"
-                        required>
-                </div>
-                <div class="mb-4">
-                    <label for="number" class="block text-sm font-medium text-[#817e79]">Chapter Number</label>
-                    <input
-                        type="number"
-                        name="number"
-                        id="number"
-                        class="w-full border-b border-[#eae6e3] bg-transparent text-[#4a4845] px-2 py-2 focus:outline-none focus:border-[#d9d4cc] transition"
-                        placeholder="Enter chapter number"
-                        required>
-                </div>
-                <div class="flex justify-end space-x-4">
-                    <button
-                        type="button"
-                        onclick="closeModal()"
-                        class="bg-[#e3dfda] text-[#4a4845] px-4 py-2 rounded-md hover:bg-[#d9d4cc] transition">
-                        Cancel
-                    </button>
-                    <button
-                        type="submit"
-                        class="bg-[#e3dfda] text-[#4a4845] px-4 py-2 rounded-md hover:bg-[#d9d4cc] transition">
-                        Add Chapter
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function openModal() {
-            document.getElementById("modal").classList.remove("hidden");
-        }
-        function closeModal() {
-            document.getElementById("modal").classList.add("hidden");
-        }
-    </script>
 </body>
 
 </html>
