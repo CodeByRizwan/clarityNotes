@@ -10,6 +10,7 @@ ClarityNotes is a web application designed to help users organize and retain not
 - **Note Organization**: View, edit, and delete notes under various chapters and custom fields.
 - **Modal for Adding Fields**: A user-friendly modal interface to add custom fields for each chapter.
 - **Logout**: Easy logout functionality for securing your account.
+- **Mobile-specific design**: designed primarily for mobile screens.
 
 ## Tools Used
 
