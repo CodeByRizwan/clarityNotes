@@ -19,3 +19,5 @@ ClarityNotes is a web application designed to help users organize and retain not
 - **Authentication**: Custom authentication using session-based management
 - **Styling**: TailwindCSS for responsive and minimalist design
 - **Deployment**: Vercel for hosting
+
+[Live Site](https://claritynotes-di1r.onrender.com/) - This is the link to visit the site.
