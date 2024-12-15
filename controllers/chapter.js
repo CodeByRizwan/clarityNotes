@@ -46,9 +46,6 @@ async function handleOneChapterDisplay(req, res) {
 async function handleChapterCreation(req,res){
     const { name , number} = req.body
     const bookId = req.params.bookId
-    console.log(bookId);
-    
-
     try{
         const createdChapter = await chapter.create({
             name : name,

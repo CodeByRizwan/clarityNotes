@@ -10,6 +10,8 @@ const bookRouter = require("./routes/book")
 const chapterRouter = require("./routes/chapter")
 const fieldsRouter = require("./routes/fields")
 const addRouter = require("./routes/add")
+const deleteRouter = require("./routes/delete")
+
 const connectMongoDb = require("./connection");
 const checkForAuthentication = require("./middlewares/auth");
 
@@ -37,6 +39,7 @@ app.use("/home",checkForAuthentication("token"),bookRouter)
 app.use("/book",checkForAuthentication("token"),chapterRouter)
 app.use("/chapter",checkForAuthentication("token"),fieldsRouter)
 app.use("/add",checkForAuthentication("token"),addRouter)
+app.use("/delete",checkForAuthentication("token"),deleteRouter)
 
 
 app.use((err, req, res, next) => {
