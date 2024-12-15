@@ -21,4 +21,4 @@ ClarityNotes is a web application designed to help users organize and retain not
 - **Styling**: TailwindCSS for responsive and minimalist design
 - **Deployment**: Vercel for hosting
 
-[Live Site](https://claritynotes-di1r.onrender.com/) - This is the link to visit the site.
+## You can visit the site live [here](https://claritynotes-di1r.onrender.com/)
